@@ -1,0 +1,13 @@
+api: 
+  admin: 
+    name: histograph
+    password: histograph
+  dataDir: "/tmp/histograph-api-data"
+
+import:
+  dirs:
+    - ../data
+
+core:
+  batchTimeout: 100
+  batchSize: 250
