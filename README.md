@@ -17,5 +17,6 @@ This will
 3. clone histograph repositories
 4. install node dependencies
 5. generate some core datafiles
+6. clean Neo4J (**warning!!**) and install schema
 6. start core and API and wait until API is up
 7. import all generated data
