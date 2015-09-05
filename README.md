@@ -18,7 +18,7 @@ Then grab a movie or something, sit back and relax, this will
 
 1. install quickstart dependencies
 1. start quickstart
-1. clean dependencies
+1. rimraf api, data, import, core directories
 1. clean Neo4J (**warning!!**) and install schema
 1. clone histograph repositories
 1. install node dependencies
