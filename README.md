@@ -9,12 +9,12 @@ Make sure you have Redis, Elastic and Neo4J running at default ports.
 If not localhost, default port, change `config.yaml`.
 Disable Neo4J auth, install Elastic default mapping. Clear Elastic search. 
 
-Then grab a movie or something, now run:
+Ready? Ok, run:
 
         cd histograph
         npm start
 
-Sit back and relax, this will
+Then grab a movie or something, sit back and relax, this will
 
 1. install quickstart dependencies
 1. start quickstart
