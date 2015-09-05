@@ -6,17 +6,24 @@ Clone this repository
 
 Make sure you have Node JS and NPM installed.
 Make sure you have Redis, Elastic and Neo4J running at default ports.
+If not localhost, default port, change `config.yaml`.
+Disable Neo4J auth, install Elastic default mapping. Clear Elastic search. 
+
+Then grab a movie or something, now run:
 
         cd histograph
         npm start
 
-This will
+Sit back and relax, this will
 
 1. install quickstart dependencies
-2. start quickstart
-3. clone histograph repositories
-4. install node dependencies
-5. generate some core datafiles
-6. clean Neo4J (**warning!!**) and install schema
-6. start core and API and wait until API is up
-7. import all generated data
+1. start quickstart
+1. clean dependencies
+1. clean Neo4J (**warning!!**) and install schema
+1. clone histograph repositories
+1. install node dependencies
+1. generate some core datafiles
+1. start core and API and wait until API is up
+1. import all generated data
+
+Takes half an hour or so...
