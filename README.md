@@ -11,8 +11,8 @@ Disable Neo4J auth, install Elastic default mapping. Clear Elastic search.
 
 Ready? Ok, run:
 
-        cd histograph
-        npm start
+	cd histograph
+	npm start
 
 Then grab a movie or something, sit back and relax, this will
 
