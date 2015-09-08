@@ -4,7 +4,7 @@
   "description": "Histograph installer",
   "main": "quickstart.js",
   "scripts": {
-    "start": "npm i && node quickstart"
+    "start": "npm i && node ./quickstart.js"
   },
   "author": "Jelle 'wires' Herold",
   "license": "AGPL-1.0",
