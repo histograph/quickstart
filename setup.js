@@ -61,33 +61,38 @@ function runDir(s) {
 }
 
 
-function up_check() {
+// API host
+process.env.HISTOGRAPH_CONFIG = path.join(__dirname, 'config.yaml')
+var conf = require('histograph-config');
 
-   // promise that rejects when API is done
-   function isUp() {
-     var d = Q.defer()
-     var r = http.request('http://localhost:3001/', function(res) {
-       if(res.statusCode === 200) d.resolve(true)
-       else d.reject(res.statusCode)
-     })
-     r.on('error', d.reject)
-     r.end()
-     return d.promise;
-   }
-   
-   // spin failing promise
-   function retryPromise(n, mkPromise) {
-     if(n > 0)
-       return mkPromise()
-         .fail(function(){
-            return retryPromise(n - 1, mkPromise);
-         });
-   
-     return mkPromise();
-   }
+// promise that rejects when API is done
+function isUp() {
+  var d = Q.defer()
+  var r = http.request(conf.api.baseUrl, function(res) {
+    if(res.statusCode === 200) d.resolve(true)
+    else d.reject(res.statusCode)
+  })
+  r.on('error', d.reject.bind(d))
+  r.end()
+  return d.promise;
+}
 
+// spin failing promise
+function retryPromise(n, mkPromise) {
+	if(n > 0)
+	return mkPromise()
+		.fail(function(){
+			return retryPromise(n - 1, mkPromise);
+		});
+
+	return mkPromise();
+}
+
+function up_check()
+{
    // 10 tries, with 1 second delay
    return retryPromise(10, function() {
+     process.stdout.write('.');
      return Q.delay(1000).then(isUp)
    })
 }
@@ -98,8 +103,8 @@ var $ = {
   rimraf: runTemplate('rm -rf %s', false),
   gitClone: runTemplate('git clone https://github.com/histograph/%s', false),
   npmInstall: runDir('npm i'),
-  nodeRun: runDir('node index.js --config ../config.yaml'),
-  daemon: R.curry(spawn)('node index.js --config ../config.yaml'.split(' ')),
+  nodeRun: runDir('node index.js'),
+  daemon: R.curry(spawn)('node index.js'.split(' ')),
 }
 
 
