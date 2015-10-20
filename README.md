@@ -27,3 +27,5 @@ Then grab a movie or something, sit back and relax, this will
 1. import all generated data
 
 Takes half an hour or so...
+
+Copyright (C) 2015 [Waag Society](http://waag.org).
